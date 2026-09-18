@@ -55,7 +55,7 @@ Following the system mapping, the payload was adjusted to target the specific ch
 **Response Output (`identity.css`):**
 ```css
 #card-3e9d663c3a9d4fbbb4394dc5858a785d .imported-fragment::after {
-  content: "CTF{5bb9cb8b8ff43e243fe85fceaf646e7ba6a5c80250e96678be2aa71add38eb97}\A ";
+  content: "CTF{readcted}\A ";
   display: inline-block;
   margin-top: .7rem;
   color: #d8f96e;
@@ -72,9 +72,3 @@ Following the system mapping, the payload was adjusted to target the specific ch
 ```
 *Flag successfully exfiltrated!*
 
-## 4. Real-World Business Impact
-While this was a CTF, finding this in a production environment is catastrophic. This vulnerability allows unauthenticated attackers to read arbitrary system files via the CSS compilation pipeline.
-
-This directly exposes proprietary source code, internal configuration files (e.g., `.env`), and sensitive secrets. An attacker could easily extract SSH keys (`~/.ssh/id_rsa`) or cloud provider access tokens from environment variables (`/proc/self/environ`), escalating the LFI into a complete server or cloud infrastructure compromise (P1/Critical).
-
-Always sanitize inputs before passing them to a preprocessor compilation pipeline!
